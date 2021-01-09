@@ -6,6 +6,13 @@ class Personnage
   private $_experience = 0; // Son expérience
   private $_degats = 0; // Ses dégâts
 
+  // Constructeur
+  public function __construct($exp)
+  {
+    $this->_force = random_int(10, 20) + (2*$exp);
+    $this->_experience = $exp;
+  }
+  
   // Getters
   public function getForce()
   {

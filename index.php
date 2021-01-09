@@ -10,12 +10,16 @@
 <body>
 
     <?php
-        require 'Personnage.php';
+        // Autoloader
+        function chargerClasse($classe)
+            {
+            require $classe . '.php';
+            }
 
-        $perso1 = new Personnage;
-        $perso1->setForce(random_int(10, 20));
-        $perso2 = new Personnage;
-        $perso2->setForce(random_int(10, 20));
+        spl_autoload_register('chargerClasse');
+
+        $perso1 = new Personnage(3);
+        $perso2 = new Personnage(2);
         echo 'Fiche de base :<br>';
         $perso1->parler("1");
         $perso1->ATH("1");
