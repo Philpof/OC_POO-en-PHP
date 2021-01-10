@@ -18,24 +18,32 @@
 
         spl_autoload_register('chargerClasse');
 
+        // Personnages
         $perso1 = new Personnage(Personnage::FORCE_PETITE, 3);
         $perso2 = new Personnage(Personnage::FORCE_MOYENNE, 2);
         echo 'Fiche de base :<br>';
-        $perso1->parler("1");
-        $perso1->ATH("1");
-        $perso2->parler("2");
-        $perso2->ATH("2");
+        Personnage::parler(1);
+        $perso1->ATH(1);
+        Personnage::parler(2);
+        $perso2->ATH(2);
         echo 'Combat, tour n°1 :<br>';
         $perso1->frapper($perso2);
         $perso1->gagnerExperience();
-        $perso1->ATH("1");
-        $perso2->ATH("2");
+        $perso1->ATH(1);
+        $perso2->ATH(2);
         echo 'Combat, tour n°2 :<br>';
         $perso2->frapper($perso1);
         $perso2->gagnerExperience();
-        $perso1->ATH("1");
-        $perso2->ATH("2");
+        $perso1->ATH(1);
+        $perso2->ATH(2);
         
+        // Compteur
+        $test1 = new Compteur;
+        $test2 = new Compteur;
+        $test3 = new Compteur;
+
+        echo Compteur::getCompteur();
+
 
     ?>
 

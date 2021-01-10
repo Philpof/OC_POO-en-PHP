@@ -12,6 +12,9 @@ class Personnage
   const FORCE_MOYENNE = 50;
   const FORCE_GRANDE = 80;
 
+  // Variables statics privées
+  private static $_texteADire = 'Je vais gagner ce combat !<br>';
+
 
   // Constructeur
   public function __construct($forceInitiale, $exp)
@@ -86,9 +89,10 @@ class Personnage
     $this->_experience = $this->_experience + 1;
   }
 
-  public function parler($numéro) // Pour faire parler le personnage (afficher un texte).
+  public static function parler($numéro) // Pour faire parler le personnage (afficher un texte).
   {
     echo 'Bonjour, je suis le personnage n°' . $numéro . ' !<br>';
+    echo self::$_texteADire;
   }
 
 }
