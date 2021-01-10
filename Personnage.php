@@ -1,15 +1,22 @@
 <?php
 class Personnage
 {
+  // Attributs
   private $_force; // Sa force
   private $_localisation; // Sa localisation
   private $_experience = 0; // Son expérience
   private $_degats = 0; // Ses dégâts
 
+  // Constantes
+  const FORCE_PETITE = 20;
+  const FORCE_MOYENNE = 50;
+  const FORCE_GRANDE = 80;
+
+
   // Constructeur
-  public function __construct($exp)
+  public function __construct($forceInitiale, $exp)
   {
-    $this->_force = random_int(10, 20) + (2*$exp);
+    $this->setForce($forceInitiale);
     $this->_experience = $exp;
   }
   
@@ -37,7 +44,10 @@ class Personnage
     // Setters
     public function setForce($force)
     {
-      $this->_force = $force;
+      if (in_array($force, [self::FORCE_PETITE, self::FORCE_MOYENNE, self::FORCE_GRANDE]))
+      {
+        $this->_force = $force;
+      }
     }
   
     public function setLocalisation($localisation)

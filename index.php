@@ -18,8 +18,8 @@
 
         spl_autoload_register('chargerClasse');
 
-        $perso1 = new Personnage(3);
-        $perso2 = new Personnage(2);
+        $perso1 = new Personnage(Personnage::FORCE_PETITE, 3);
+        $perso2 = new Personnage(Personnage::FORCE_MOYENNE, 2);
         echo 'Fiche de base :<br>';
         $perso1->parler("1");
         $perso1->ATH("1");
