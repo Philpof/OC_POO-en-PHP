@@ -2,10 +2,12 @@
 class Personnage
 {
   // Attributs
-  private $_force; // Sa force
-  private $_localisation; // Sa localisation
-  private $_experience = 0; // Son expérience
-  private $_degats = 0; // Ses dégâts
+  private $_id;
+  private $_nom;
+  private $_force;
+  private $_degats;
+  private $_niveau;
+  private $_experience;
 
   // Constantes
   const FORCE_PETITE = 20;
@@ -15,7 +17,6 @@ class Personnage
   // Variables statics privées
   private static $_texteADire = 'Je vais gagner ce combat !<br>';
 
-
   // Constructeur
   public function __construct($forceInitiale, $exp)
   {
@@ -24,19 +25,19 @@ class Personnage
   }
   
   // Getters
+  public function getId()
+  {
+    return $this->_id;
+  }
+
+  public function getNom()
+  {
+    return $this->_nom;
+  }
+
   public function getForce()
   {
     return $this->_force;
-  }
-
-  public function getLocalisation()
-  {
-    return $this->_localisation;
-  }
-
-  public function getExperience()
-  {
-    return $this->_experience;
   }
 
   public function getDegats()
@@ -44,34 +45,106 @@ class Personnage
     return $this->_degats;
   }
 
-    // Setters
-    public function setForce($force)
+  public function getNiveau()
+  {
+    return $this->_niveau;
+  }
+
+  public function getExperience()
+  {
+    return $this->_experience;
+  }
+
+  // Setters
+  public function setId(int $id)
+  {
+    if ($id > 0)
     {
-      if (in_array($force, [self::FORCE_PETITE, self::FORCE_MOYENNE, self::FORCE_GRANDE]))
+      $this->_id = $id;
+    }
+    
+  }
+
+  public function setNom(string $nom)
+  {
+    $this->_nom = $nom;
+  }
+
+  public function setForce($force)
+  {
+    if (in_array($force, [self::FORCE_PETITE, self::FORCE_MOYENNE, self::FORCE_GRANDE]))
+    {
+      if ($force >= 1 && $force <= 100)
       {
         $this->_force = $force;
       }
+      elseif ($force < 1)
+      {
+        $this->_force = 1;
+      }
+      else
+      {
+        $this->_force = 100;
+      }
     }
-  
-    public function setLocalisation($localisation)
-    {
-      $this->_localisation = $localisation;
-    }
-  
-    public function setExperience($experience)
-    {
-      $this->_experience = $experience;
-    }
-  
-    public function setDegats($degats)
+  }
+
+  public function setDegats(int $degats)
+  {
+    if ($degats >= 1 && $degats <= 100)
     {
       $this->_degats = $degats;
     }
+    elseif ($degats < 1)
+    {
+      $this->_degats = 1;
+    }
+    else
+    {
+      $this->_degats = 100;
+    }
+  }
+
+  public function setNiveau(int $niveau)
+  {
+    if ($niveau >= 1 && $niveau <= 100)
+    {
+      $this->_niveau = $niveau;
+    }
+    elseif ($niveau < 1)
+    {
+      $this->_niveau = 1;
+    }
+    else
+    {
+      $this->_niveau = 100;
+    }
+  }
+
+  public function setExperience(int $experience)
+  {
+    if ($experience >= 1 && $experience <= 100)
+    {
+      $this->_experience = $experience;
+    }
+    elseif ($experience < 1)
+    {
+      $this->_experience = 1;
+    }
+    else
+    {
+      $this->_experience = 100;
+    }
+  }
 
   // Méthodes
     public function ATH($numéro) // Pour afficher les différents éléments du personnage
   {
-    echo 'Personnage n°' . $numéro . ' :<br>Expérience = ' . $this->_experience . '<br> Force = ' . $this->_force . '<br> Dégats = ' . $this->_degats . '<br> Localisation = ' . $this->_localisation . '<br>';
+    echo 'Personnage n°' . $numéro . ' :<br>
+      Expérience = ' . $this->_experience . '<br>
+      Niveau = ' . $this->_niveau . '<br>
+      Force = ' . $this->_force . '<br>
+      Dégats = ' . $this->_degats . '<br>';
   }
   
   public function deplacer() // Pour déplacer le personnage (modifier sa localisation).
