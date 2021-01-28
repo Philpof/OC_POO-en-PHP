@@ -1,3 +1,8 @@
+<?php
+    require('controllers/Compteur.php');
+    require('controllers/Personnage.php');
+?>
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
