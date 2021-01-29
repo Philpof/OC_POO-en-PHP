@@ -16,12 +16,12 @@
 
     <?php
         // Autoloader
-        function chargerClasse($classe)
-            {
-            require $classe . '.php';
-            }
+        // function chargerClasse($classe)
+        //     {
+        //         require $classe . '.php';
+        //     }
 
-        spl_autoload_register('chargerClasse');
+        // spl_autoload_register('chargerClasse');
 
         // Personnages
         $perso1 = new Personnage(Personnage::FORCE_PETITE, 3);
@@ -48,7 +48,6 @@
         $test3 = new Compteur;
 
         echo Compteur::getCompteur();
-
 
     ?>
 
