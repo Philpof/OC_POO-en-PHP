@@ -1,6 +1,5 @@
 <?php
-    require('controllers/Compteur.php');
-    require('controllers/Personnage.php');
+    require('controllers/autoloader/Autoloader.php');
 ?>
 
 <!DOCTYPE html>
@@ -15,14 +14,6 @@
 <body>
 
     <?php
-        // Autoloader
-        // function chargerClasse($classe)
-        //     {
-        //         require $classe . '.php';
-        //     }
-
-        // spl_autoload_register('chargerClasse');
-
         // Personnages
         $perso1 = new Personnage(Personnage::FORCE_PETITE, 3);
         $perso2 = new Personnage(Personnage::FORCE_MOYENNE, 2);
