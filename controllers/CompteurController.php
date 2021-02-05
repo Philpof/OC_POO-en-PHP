@@ -1,6 +1,6 @@
 <?php
 
-class Compteur
+class CompteurController
 {
     private static $_compteur;
 

@@ -15,12 +15,12 @@
 
     <?php
         // Personnages
-        $perso1 = new Personnage(Personnage::FORCE_PETITE, 3);
-        $perso2 = new Personnage(Personnage::FORCE_MOYENNE, 2);
+        $perso1 = new PersonnageController(PersonnageController::FORCE_PETITE, 3);
+        $perso2 = new PersonnageController(PersonnageController::FORCE_MOYENNE, 2);
         echo 'Fiche de base :<br>';
-        Personnage::parler(1);
+        PersonnageController::parler(1);
         $perso1->ATH(1);
-        Personnage::parler(2);
+        PersonnageController::parler(2);
         $perso2->ATH(2);
         echo 'Combat, tour n°1 :<br>';
         $perso1->frapper($perso2);
@@ -34,11 +34,11 @@
         $perso2->ATH(2);
         
         // Compteur
-        $test1 = new Compteur;
-        $test2 = new Compteur;
-        $test3 = new Compteur;
+        $test1 = new CompteurController;
+        $test2 = new CompteurController;
+        $test3 = new CompteurController;
 
-        echo Compteur::getCompteur();
+        echo CompteurController::getCompteur();
 
     ?>
 

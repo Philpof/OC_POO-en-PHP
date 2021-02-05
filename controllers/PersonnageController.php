@@ -1,5 +1,5 @@
 <?php
-class Personnage
+class PersonnageController
 {
   // Attributs
   private $_id;
@@ -152,7 +152,7 @@ class Personnage
     
   }
   
-  public function frapper(Personnage $persoAFrapper) // Pour frapper un personnage (suivant la force qu'il a).
+  public function frapper(PersonnageController $persoAFrapper) // Pour frapper un personnage (suivant la force qu'il a).
   {
     $persoAFrapper->_degats += $this->_force;
   }
