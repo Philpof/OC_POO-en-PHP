@@ -34,11 +34,8 @@
         $perso2->ATH(2);
         
         // Compteur
-        $test1 = new CompteurController;
-        $test2 = new CompteurController;
-        $test3 = new CompteurController;
+        include('views/compteur.php');
 
-        echo CompteurController::getCompteur();
 
     ?>
 
